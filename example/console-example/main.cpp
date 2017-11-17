@@ -145,7 +145,8 @@ int wmain(int argc, LPWSTR *argv)
 
 
 	WinToastTemplate templ((imagePath != NULL) ? WinToastTemplate::ImageAndText01 : WinToastTemplate::Text01);
-    templ.setImagePath(imagePath);
+    if (imagePath)
+        templ.setImagePath(imagePath);
 	templ.setTextField(text, WinToastTemplate::FirstLine);
     
 	for (auto const &action : actions)
